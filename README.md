@@ -10,6 +10,10 @@
 [![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit&logoColor=white)](https://health-classification.streamlit.app/)
 
 ---
+## 🌐 Live Demo
+
+**👉 [ Diabetes Risk Classification](https://health-classification.streamlit.app/)**
+---
 
 ## 🎯 Demo App
 
