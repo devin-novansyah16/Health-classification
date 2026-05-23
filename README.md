@@ -19,7 +19,7 @@ python -m streamlit run app.py
 ```
 Buka browser → `http://localhost:8501`
 
-[![App Preview](reports/model_evaluation.png)]
+
 
 ---
 
