@@ -135,11 +135,34 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 """, unsafe_allow_html=True)
 
 
+# ── Auto-train if model not found ─────────────────────────────────────────────
+def auto_train():
+    import subprocess
+    os.makedirs("data",    exist_ok=True)
+    os.makedirs("models",  exist_ok=True)
+    os.makedirs("reports", exist_ok=True)
+
+    steps = [
+        ("src/generate_data.py", "📦 Generating dataset..."),
+        ("src/eda.py",           "📊 Running EDA..."),
+        ("src/train.py",         "🤖 Training model (this may take a minute)..."),
+    ]
+
+    bar = st.progress(0, text="⏳ Setting up model for the first time...")
+    for i, (script, msg) in enumerate(steps):
+        bar.progress((i + 1) / len(steps), text=msg)
+        result = subprocess.run([sys.executable, script], capture_output=True, text=True)
+        if result.returncode != 0:
+            st.error(f"Setup error:\n```\n{result.stderr[-1000:]}\n```")
+            st.stop()
+
+    bar.progress(1.0, text="✅ Model ready!")
+    st.rerun()
+
+
 # ── Load model ────────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    if not os.path.exists("models/best_model.pkl"):
-        return None, None, None
     model  = joblib.load("models/best_model.pkl")
     scaler = joblib.load("models/scaler.pkl")
     metrics = {}
@@ -148,11 +171,12 @@ def load_model():
             metrics = json.load(f)
     return model, scaler, metrics
 
-model, scaler, metrics = load_model()
 
-if model is None:
-    st.error("⚠️ Model not found. Please run `python main.py` first to train the model.")
-    st.stop()
+if not os.path.exists("models/best_model.pkl"):
+    st.info("🔧 First run detected — training model automatically. Please wait...")
+    auto_train()
+
+model, scaler, metrics = load_model()
 
 
 # ── Feature engineering (mirror of preprocess.py) ────────────────────────────
