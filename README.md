@@ -15,7 +15,7 @@
 **👉 [ Diabetes Risk Classification](https://health-classification.streamlit.app/)**
 ---
 
-## 🎯 Demo App
+## 🎯 Demo App (Local)
 
 Jalankan web app interaktif:
 ```bash
