@@ -1,0 +1,9 @@
+# Generated files
+data/
+models/
+reports/
+__pycache__/
+*.pyc
+*.pkl
+.DS_Store
+.env
