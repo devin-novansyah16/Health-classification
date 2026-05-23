@@ -7,6 +7,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2%2B-orange?style=flat-square)](https://scikit-learn.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red?style=flat-square&logo=streamlit)](https://streamlit.io)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=flat-square)]()
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit&logoColor=white)](https://health-classification.streamlit.app/)
 
 ---
 
@@ -18,7 +19,7 @@ python -m streamlit run app.py
 ```
 Buka browser → `http://localhost:8501`
 
-[![App Preview](reports/model_evaluation.png)](https://health-classification.streamlit.app/)
+[![App Preview](reports/model_evaluation.png)]
 
 ---
 
