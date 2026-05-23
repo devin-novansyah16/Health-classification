@@ -259,8 +259,7 @@ print(result)
 
 ## Author
 
-**Devin Novansyah**  
-Mahasiswa Teknik Informatika | Data Science & Machine Learning Enthusiast
+**Devin Novansyah** 
 
 [![GitHub](https://img.shields.io/badge/GitHub-devin--novansyah16-black?style=flat-square&logo=github)](https://github.com/devin-novansyah16)
 
